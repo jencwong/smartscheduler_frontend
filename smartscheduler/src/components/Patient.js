@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import "./App.css";
+// import "./App.css";
 import axios from "axios";
-import NewAppt from "./components/NewAppt.js";
-import ShowAppt from "./components/ShowAppt.js";
-import UpdateAppt from "./components/UpdateAppt.js";
+import NewAppt from "./NewAppt.js";
+import ShowAppt from "./ShowAppt.js";
+import UpdateAppt from "./UpdateAppt.js";
 
 //The following commented out code was moved to MainContent:
-// let baseURL = process.env.REACT_APP_BASEURL;
+let baseURL = process.env.REACT_APP_BASEURL;
 
-// if (process.env.NODE_ENV === "development") {
-//   baseURL = "http://localhost:3003";
-// } else {
-//   baseURL = "heroku or other backend url here";
-// }
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "heroku or other backend url here";
+}
 
 class Patient extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Patient extends Component {
     this.state = {
       appointments: [],
       appointment: {},
-      selectedAppointment: {}, 
+      selectedAppointment: {},
       editButton: false
     };
     this.getAppointments = this.getAppointments.bind(this);
@@ -41,14 +41,13 @@ class Patient extends Component {
   }
 
   async editAppointments(clickedAppointment) {
-    console.log('Clicked Edit Button');
+    console.log("Clicked Edit Button");
     await this.setState({
       editButton: !this.state.editButton,
       selectedAppointment: clickedAppointment
     });
-    console.log('Current Appointment: ', this.state.selectedAppointment);
+    console.log("Current Appointment: ", this.state.selectedAppointment);
   }
-
 
   async deleteAppointments(id) {
     await axios.delete(`${baseURL}/appointments/${id}`);
@@ -85,7 +84,12 @@ class Patient extends Component {
   }
 
   render() {
-    const showUpdateAppt= this.state.editButton ? <UpdateAppt appointment={ this.state.selectedAppointment } getAppointments={ this.state.getAppointments } /> : null;
+    const showUpdateAppt = this.state.editButton ? (
+      <UpdateAppt
+        appointment={this.state.selectedAppointment}
+        getAppointments={this.state.getAppointments}
+      />
+    ) : null;
     return (
       <div className="container">
         <h1>My Appointments</h1>
@@ -96,27 +100,39 @@ class Patient extends Component {
               <tbody>
                 {this.state.appointments.map(appointment => {
                   return (
-                    <tr onMouseOver={() => this.getAppointment(appointment)}
-                      key={ appointment._id }>
+                    <tr
+                      onMouseOver={() => this.getAppointment(appointment)}
+                      key={appointment._id}
+                    >
                       <td>
                         <a href={"http://" + appointment.url} target="_blank">
-                          { appointment.name }
+                          {appointment.name}
                         </a>
                       </td>
                       {/* note: toggle may not be needed as written - TBD */}
                       <td
-                        className={ appointment.visited ? "visited" : null}
+                        className={appointment.visited ? "visited" : null}
                         onDoubleClick={() =>
-                          this.toggleVisited(appointment, appointment._id) }>
+                          this.toggleVisited(appointment, appointment._id)
+                        }
+                      >
                         {" "}
                         {appointment.url}
                       </td>
                       <td>
-                        <button onClick={() => this.editAppointments(appointment)}>Edit</button>
+                        <button
+                          onClick={() => this.editAppointments(appointment)}
+                        >
+                          Edit
+                        </button>
                       </td>
                       <td>
                         {" "}
-                        <button onClick={() => this.deleteAppointments(appointment._id)}>
+                        <button
+                          onClick={() =>
+                            this.deleteAppointments(appointment._id)
+                          }
+                        >
                           DELETE{" "}
                         </button>
                       </td>
@@ -126,12 +142,14 @@ class Patient extends Component {
               </tbody>
             </table>
           </section>
-          <section> { showUpdateAppt } </section>
+          <section> {showUpdateAppt} </section>
         </main>
         <br />
         <br />
         <br />
-        {this.state.appointment && <ShowAppt appointment={this.state.appointment} />}
+        {this.state.appointment && (
+          <ShowAppt appointment={this.state.appointment} />
+        )}
       </div>
     );
   }

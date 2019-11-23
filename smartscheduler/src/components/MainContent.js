@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import Patient from "./Patient";
 
 let baseURL = process.env.REACT_APP_BASEURL;
 if (process.env.NODE_ENV === "development") {
@@ -14,7 +15,7 @@ class MainContent extends Component {
       <div>
         <Header />
         <main>
-          <h1 className="AppName">CalDoc</h1>
+          <h1 className="AppName">MediCal</h1>
           <img />
           <section className="intro">
             <h2>Meet Our Team</h2>
@@ -56,8 +57,8 @@ class MainContent extends Component {
           <section>
             <h2>Contact Us</h2>
           </section>
+          <Patient />
         </main>
-        {/* <Footer /> */}
       </div>
     );
   }
