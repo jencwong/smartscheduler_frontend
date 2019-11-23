@@ -1,19 +1,11 @@
 import React, { Component } from "react";
+import FrontLogin from "./FrontLogin";
 
 class Nav extends Component {
   render() {
     return (
       <div>
-        <nav className="Nav">
-          <ul style={{ listStyle: "none" }}>
-            <li>
-              <a href="#">Register</a>
-            </li>
-            <li>
-              <a href="#">Log In</a>
-            </li>
-          </ul>
-        </nav>
+        <FrontLogin />
       </div>
     );
   }
