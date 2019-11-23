@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .App {
   background: lightblue;
 }
@@ -8,6 +9,33 @@ body {
 }
 .AppName {
   color: blue;
+=======
+
+body {
+  /* text-align: center; */
+}
+h1 {
+  color: blue;
+}
+h2 {
+  color: rgb(64, 64, 241);
+}
+.appointments {
+  /* text-align: center; */
+}
+table {
+/* text-align: center; */
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+>>>>>>> 11f3a05bfbbc6844fe38e75531e03a5e31e90fb5
 }
 .Nav {
   text-align: left;
