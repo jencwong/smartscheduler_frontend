@@ -32,7 +32,7 @@ class Main extends Component {
   }
 
   async getAppointments() {
-    const response = await axios(`${baseURL}/appointments`);
+    const response = await axios(`${baseURL}/appointment/admin`);
     const appointments = response.data;
     this.setState({
       appointments: appointments
