@@ -1,38 +1,11 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import Header from "./Header";
 import Patient from "./Patient";
-=======
-//NOTE: Temporarily commented out so we can work on the other components. Once login is complete, this can be added back. 
->>>>>>> 11f3a05bfbbc6844fe38e75531e03a5e31e90fb5
 
 // import React, { Component } from "react";
 // import Header from "./Header";
 // import Patient from "./Patient.js";
 
-<<<<<<< HEAD
-class MainContent extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <main>
-          <h1 className="AppName">MediCal</h1>
-          <img />
-          <section className="intro">
-            <h2>Meet Our Team</h2>
-            <div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                vel gravida nisi. Vestibulum ac consequat lorem. In in mi massa.
-                Donec ut tellus sit amet sem ornare fermentum at et nunc.
-                Pellentesque ac elementum metus. Praesent non venenatis lacus.
-                In sagittis urna in nulla sagittis mattis.
-              </p>
-            </div>
-          </section>
-=======
->>>>>>> 11f3a05bfbbc6844fe38e75531e03a5e31e90fb5
 
 // let baseURL = process.env.REACT_APP_BASEURL;
 // if (process.env.NODE_ENV === "development") {
@@ -41,17 +14,6 @@ class MainContent extends Component {
 //   baseURL = "heroku or other backend url here";
 // }
 
-<<<<<<< HEAD
-          <section>
-            <h2>Contact Us</h2>
-          </section>
-          <Patient />
-        </main>
-      </div>
-    );
-  }
-}
-=======
 // class MainContent extends Component {
 //   render() {
 //     return (
@@ -72,7 +34,6 @@ class MainContent extends Component {
 //               </p>
 //             </div>
 //           </section>
->>>>>>> 11f3a05bfbbc6844fe38e75531e03a5e31e90fb5
 
 //           <section>
 //             <h2>Our Mission</h2>

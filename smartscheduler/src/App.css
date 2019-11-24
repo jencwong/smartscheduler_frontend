@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-.App {
-  background: lightblue;
-}
-body {
-  background: lightblue;
-  bottom: 50px;
-  text-align: center;
-}
-.AppName {
-  color: blue;
-=======
-
 body {
   /* text-align: center; */
 }
@@ -24,7 +11,7 @@ h2 {
   /* text-align: center; */
 }
 table {
-/* text-align: center; */
+  /* text-align: center; */
 }
 .App-header {
   background-color: #282c34;
@@ -35,7 +22,6 @@ table {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
->>>>>>> 11f3a05bfbbc6844fe38e75531e03a5e31e90fb5
 }
 .Nav {
   text-align: left;
