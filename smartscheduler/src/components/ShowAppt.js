@@ -51,7 +51,7 @@ class ShowAppt extends React.Component {
   }
   render() {
     return (
-      <div className="container">
+      <div class="card">
         <hr></hr>
         <hr></hr>
         <br></br>
@@ -60,7 +60,7 @@ class ShowAppt extends React.Component {
           <NewAppt handleAddAppointment={this.handleAddAppointment} />
           Schedule New Appointment
         </button> */}
-        <div className="apptCard">
+        <div class="card-content">
           <div>
             <br />
       

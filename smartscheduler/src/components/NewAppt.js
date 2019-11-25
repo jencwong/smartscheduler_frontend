@@ -13,6 +13,7 @@ class NewAppt extends Component {
       date: "",
       time: "",
       visitType: "",
+      comments: "",
       // doctor: "",
       // visited: ""
     };
@@ -33,6 +34,7 @@ class NewAppt extends Component {
       date: this.state.date,
       time: this.state.time,
       visitType: this.state.visitType,
+      comments: this.state.comments,
     });
     this.setState({
       date: "",
@@ -45,45 +47,49 @@ class NewAppt extends Component {
 
   render() {
     return (
-      <div>
-      <h2>Add A New Appointment</h2>
-     
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="date"></label>
-        <input
-          type="text"
-          id="date"
-          name="date"
-          onChange={this.handleChange}
-          value={this.state.date}
-          placeholder="Date"
-        />
-        <label htmlFor="time"></label>
-        <input
-          type="text"
-          id="time"
-          name="time"
-          onChange={this.handleChange}
-          value={this.state.time}
-          placeholder="Appointment Time"
-        />
-        <input
-          type="text"
-          id="visitType"
-          name="visitType"
-          onChange={this.handleChange}
-          value={this.state.visitType}
-          placeholder="Reason for Visit"
-        />
-         <textarea
-          id="comments"
-          name="comments"
-          onChange={this.handleChange}
-          value={this.state.comments}
-          placeholder="Comments / Reason for Visit"
-        />
-        <input type="submit" value="SUBMIT" />
-      </form>
+      <div className="card-content">
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="date">Date</label>
+          <input className="inputData"
+            type="date"
+            id="date"
+            name="date"
+            onChange={this.handleChange}
+            value={this.state.date}
+            placeholder="Enter Date"
+          />
+          <label htmlFor="time">Time</label>
+          <input className="inputData"
+            type="time"
+            id="time"
+            name="time"
+            onChange={this.handleChange}
+            value={this.state.time}
+            placeholder="Enter Appointment Time"
+          />
+          <label htmlFor="visitType">Appointment Type</label>
+          <input className="inputData"
+            type="text"
+            id="visitType"
+            name="visitType"
+            onChange={this.handleChange}
+            value={this.state.visitType}
+            placeholder="Enter Reason for Visit"
+          />
+          <label htmlFor="coments">Comments / Additional Information</label>
+          <textarea className="inputData"
+            id="comments"
+            name="comments"
+            onChange={this.handleChange}
+            value={this.state.comments}
+            placeholder="Enter Comments / Additional Information"
+          />
+          <input 
+          className="submitBtn" 
+          type="submit" 
+          value="SUBMIT" 
+          />
+        </form>
       </div>
     );
   }
