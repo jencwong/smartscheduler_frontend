@@ -26,9 +26,9 @@ class UpdateAppt extends Component {
   }
 
   handleOnChange(event) {
-    const { key, value } = event.target;
+    const { id, value } = event.target;
     this.setState({
-      [key]: value
+      [id]: value
     });
   }
 
@@ -36,7 +36,7 @@ class UpdateAppt extends Component {
     try {
       event.preventDefault();
       const appointmentID = this.props.appointment._id;
-      const url = `http://localhost:3003/bookmarks/${appointmentID}`;
+      const url = `http://localhost:3003/${appointmentID}`;
       const payload = {
         date: this.state.appointment.date,
         time: this.state.appointment.time,
@@ -56,6 +56,8 @@ class UpdateAppt extends Component {
     }
   }
   render() {
+    const date = new Date(this.props.appointment.date);
+    const formatDate = date.toDateString();
     return (
       <div className="card-content">
         <form onSubmit={this.handleEditSubmit}>
@@ -66,7 +68,7 @@ class UpdateAppt extends Component {
               type="text"
               id="date"
               name="date"
-              value={this.state.date}
+              value={formatDate}
               onChange={this.handleOnChange}
             />
             <input
@@ -82,7 +84,7 @@ class UpdateAppt extends Component {
               type="text"
               id="visitType"
               name="visitType"
-              value={this.state.visitType}
+              value=""
               onChange={this.handleOnChange}
             />
             <label htmlFor="comments">Comments / Reason for Visit</label>
@@ -91,7 +93,7 @@ class UpdateAppt extends Component {
               className="u-full-width"
               id="comments"
               name="comments"
-              value={this.state.comments}
+              value=""
               onChange={this.handleOnChange}
             />
             <input

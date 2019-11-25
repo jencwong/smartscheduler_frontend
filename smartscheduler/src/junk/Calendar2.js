@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
-import NewAppt from "./NewAppt";
+// import NewAppt from "./NewAppt";
 
 class Calendar2 extends Component {
   constructor(props) {

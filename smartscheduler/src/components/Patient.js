@@ -9,7 +9,6 @@ import NewAppt from "./NewAppt.js";
 import ShowAppt from "./ShowAppt.js";
 import UpdateAppt from "./UpdateAppt.js";
 import Sidebar from "./Sidebar.js";
-import Calendar2 from "./Calendar2";
 
 let baseURL = process.env.REACT_APP_BASEURL;
 
@@ -35,6 +34,7 @@ class Patient extends Component {
       appointment: {},
       selectedAppointment: {},
       editButton: false
+      
     };
     this.getAppointments = this.getAppointments.bind(this);
     this.deleteAppointments = this.deleteAppointments.bind(this);
@@ -123,7 +123,7 @@ class Patient extends Component {
 
           <div className="card-content">
             <table className="table">
-              {/* <thead>Current Appointments</thead> */}
+              <thead>Current Appointments</thead>
               <tbody>
                 {this.state.appointments.map(appointment => {
                   const date = new Date(appointment.date);

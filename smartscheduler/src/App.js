@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 // import Header from './components/Header';
 import Patient from "./components/Patient";
+import AdminMain from "./components/AdminMain";
 // import Footer from './components/Footer';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div>
       {/* <Header /> */}
       <Patient />
+      <AdminMain />
       {/* <Footer /> */}
     </div>
   );
