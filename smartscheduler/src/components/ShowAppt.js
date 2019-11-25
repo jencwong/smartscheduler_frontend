@@ -3,7 +3,13 @@
 
 import React from "react";
 import axios from "axios";
-// import NewAppt from "./NewAppt";
+import NewAppt from "./NewAppt";
+
+//
+//
+//
+//
+
 let baseURL = process.env.REACT_APP_BASEURL;
 if (process.env.NODE_ENV === "development") {
   baseURL = "http://localhost:3003";
@@ -36,12 +42,22 @@ class ShowAppt extends React.Component {
       appointments: [...this.state.appointments, appointment]
     });
   }
-  //Delete appt
+  // //Delete appt
+  // async deleteAppointment(id) {
+  //   await axios.delete(`${baseURL}/appointment/${id}`);
+  //   const filteredAppointments = this.state.appointments.filter(appointment => {
+  //     return appointment._id !== id;
+  //   });
+  //   this.setState({
+  //     appointments: filteredAppointments
+  //   });
+
   async deleteAppointment(id) {
     await axios.delete(`${baseURL}/appointment/${id}`);
     const filteredAppointments = this.state.appointments.filter(appointment => {
       return appointment._id !== id;
     });
+
     this.setState({
       appointments: filteredAppointments
     });
@@ -51,25 +67,24 @@ class ShowAppt extends React.Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="card">
         <hr></hr>
         <hr></hr>
         <br></br>
         <h2>Appointment Details</h2>
-        {/* <button>
-          <NewAppt handleAddAppointment={this.handleAddAppointment} />
-          Schedule New Appointment
-        </button> */}
-        <div className="apptCard">
+        {/* <NewAppt handleAddAppointment={this.handleAddAppointment} /> */}
+        Schedule New Appointment
+        <div className="card-content">
           <div>
             <br />
-
             {/* <h4>
               {" "}
               Hi {this.props.users.firstName}, below are details for your next
               appointment.{" "}
-            </h4> */}
+            </h4>{" "}
+            */}
             <h5>
+              {" "}
               <span>Date:</span> {this.props.appointment.date}
               <br />
               <span>Time:{this.props.appointment.time}</span>
@@ -80,7 +95,7 @@ class ShowAppt extends React.Component {
             <h5>
               <span>Comments:</span> {this.props.appointment.comments}
             </h5>
-            {/* <button onClick={() => this.deleteAppointments(appointment._id)}>
+            {/* <button onClick={() => this.deleteAppointment(appointment._id)}>
               DELETE{" "}
             </button> */}
           </div>

@@ -8,6 +8,8 @@ import axios from "axios";
 import NewAppt from "./NewAppt.js";
 import ShowAppt from "./ShowAppt.js";
 import UpdateAppt from "./UpdateAppt.js";
+import Sidebar from "./Sidebar.js";
+// import Calendar from "./Calendar";
 
 let baseURL = process.env.REACT_APP_BASEURL;
 
@@ -101,74 +103,90 @@ class Patient extends Component {
         getAppointments={this.state.getAppointments}
       />
     ) : null;
-
     return (
       <div className="container">
-        <h1>Welcome Molly Weasley</h1>
+        <div className="menu">
+          <Sidebar />
+        </div>
+        <div className="container-mainContent">
+          <div className="Card">
+            <div className="card-content">
+              <div className="content">
+                You have no appointments currently scheduled.
+              </div>
+            </div>
+          </div>
+          <h2>Schedule An Appointment</h2>
+          <NewAppt getAppointments={this.getAppointments} baseURL={baseURL} />
+          <h2>Current Appointments</h2>
+          <div className="card-content">
+            <table className="table">
+              {/* <thead>Current Appointments</thead> */}
+              <tbody>
+                {this.state.appointments.map(appointment => {
+                  const date = new Date(appointment.date);
+                  const formatDate = date.toDateString();
+                  return (
+                    // <thead>
+                    //   <tr>
+                    //     <th>Date</th>
+                    //     <th>Time</th>
+                    //   </tr>
+                    // </thead>
+                    <tr
+                      className="bordered"
+                      onMouseOver={() => this.getAppointment(appointment)}
+                      key={appointment._id}
+                    >
+                      <td>
+                        <a href={appointment} target="_blank">
+                          {formatDate}
+                        </a>
+                      </td>
 
-        <h1>My Appointments</h1>
-        <NewAppt getAppointments={this.getAppointments} baseURL={baseURL} />
-        <main>
-          <div>
-            <section>
-              <table className="appointments">
-                <tbody>
-                  {this.state.appointments.map(appointment => {
-                    const date = new Date(appointment.date);
-                    const formatDate = date.toDateString();
-                    return (
-                      <tr
-                        onMouseOver={() => this.getAppointment(appointment)}
-                        key={appointment._id}
+                      <td>{appointment.time}</td>
+                      {/* note: toggle may not be needed as written - TBD */}
+                      <td
+                        className={appointment.visited ? "visited" : null}
+                        onDoubleClick={() =>
+                          this.toggleVisited(appointment, appointment._id)
+                        }
                       >
-                        <td>
-                          <a href={appointment} target="_blank">
-                            {formatDate}
-                          </a>
-                        </td>
-                        <td>{appointment.time}</td>
-                        {/* note: toggle may not be needed as written - TBD */}
-                        <td
-                          className={appointment.visited ? "visited" : null}
-                          onDoubleClick={() =>
-                            this.toggleVisited(appointment, appointment._id)
+                        {" "}
+                        {appointment.url}
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => this.editAppointments(appointment)}
+                        >
+                          Edit
+                        </button>
+                      </td>
+                      <td>
+                        {" "}
+                        <button
+                          onClick={() =>
+                            this.deleteAppointments(appointment._id)
                           }
                         >
-                          {" "}
-                          {appointment.url}
-                        </td>
-                        <td>
-                          <button
-                            onClick={() => this.editAppointments(appointment)}
-                          >
-                            Edit
-                          </button>
-                        </td>
-                        <td>
-                          {" "}
-                          <button
-                            onClick={() =>
-                              this.deleteAppointments(appointment._id)
-                            }
-                          >
-                            Delete{" "}
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </section>
+                          Delete{" "}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
-          <section> {showUpdateAppt} </section>
-        </main>
-        <br />
-        <br />
-        <br />
-        {this.state.appointment && (
-          <ShowAppt appointment={this.state.appointment} />
-        )}
+          {/* <Calendar /> */}
+          <div> {showUpdateAppt} </div>
+          <br />
+          <br />
+          <br />
+          {this.state.appointment && (
+            <ShowAppt appointment={this.state.appointment} />
+          )}
+        </div>
       </div>
     );
   }

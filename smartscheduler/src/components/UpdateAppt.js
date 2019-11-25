@@ -1,3 +1,4 @@
+//Note: Needs to be linked as modal.
 import React, { Component } from "react";
 import axios from "axios";
 
@@ -53,18 +54,19 @@ class UpdateAppt extends Component {
   }
   render() {
     return (
-      <p>
-        <form onSubmit={this.handleEditSubmit}>
-        <div className="row">
-          <input type="text" id="date" name="date" value={ this.state.date } onChange={ this.handleOnChange } />
-          <input type="text" id="time" name="time" value={ this.state.time } onChange={ this.handleOnChange } />
-          <input type="text" id="visitType" name="visitType" value={ this.state.visitType } onChange={ this.handleOnChange } />
-          <label htmlFor="comments">Comments / Reason for Visit</label>
-          <textarea className="u-full-width" id="comments" name="comments" value={ this.state.comments } />
-          <input type="submit" value="Update Appointment" />
-        </div>
-      </form>
-      </p>
+      <div className="card-content">
+          <form onSubmit={this.handleEditSubmit}>
+          <div className="row">
+          <label htmlFor="date">Date</label>
+            <input className="inputData" type="text" id="date" name="date" value={ this.state.date } onChange={ this.handleOnChange } />
+            <input className="inputData" type="text" id="time" name="time" value={ this.state.time } onChange={ this.handleOnChange } />
+            <input className="inputData" type="text" id="visitType" name="visitType" value={ this.state.visitType } onChange={ this.handleOnChange } />
+            <label htmlFor="comments">Comments / Reason for Visit</label>
+            <textarea className="inputData" className="u-full-width" id="comments" name="comments" value={ this.state.comments } />
+            <input className="inputData" type="submit" value="Update Appointment" />
+          </div>
+        </form>
+      </div>
     );
   }
 }

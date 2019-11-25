@@ -1,4 +1,4 @@
-//Note: Needs to be included in left nav on patient dashboard.
+//Note: Needs to be linked as modal in left nav on patient dashboard.
 import React, { Component } from "react";
 import axios from "axios";
 
