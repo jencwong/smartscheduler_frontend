@@ -38,6 +38,7 @@ class AdminMain extends Component {
   }
   async getAppointments() {
     const response = await axios(`${baseURL}/appointment`);
+
     const appointments = response.data;
     this.setState({
       appointments: appointments

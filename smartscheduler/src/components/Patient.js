@@ -3,12 +3,15 @@
 //nav bar on left
 //add box with "No Appointments Scheduled" & Button below that stating "Schedule Appointment"
 import React, { Component } from "react";
-import "../App.css";
+import "../App2.css";
 import axios from "axios";
 import NewAppt from "./NewAppt.js";
 import ShowAppt from "./ShowAppt.js";
 import UpdateAppt from "./UpdateAppt.js";
 import Sidebar from "./Sidebar.js";
+import OfficeInfo from "./OfficeInfo.js";
+import Map from "./Map.js";
+// import CurrentAppointments from ".CurrentAppointments.js";
 
 let baseURL = process.env.REACT_APP_BASEURL;
 
@@ -26,6 +29,7 @@ class Patient extends Component {
       lastName: "",
       dob: "",
       email: "",
+      user: {},
       phone: "",
       comments: "",
       visitType: "",
@@ -34,7 +38,6 @@ class Patient extends Component {
       appointment: {},
       selectedAppointment: {},
       editButton: false
-      
     };
     this.getAppointments = this.getAppointments.bind(this);
     this.deleteAppointments = this.deleteAppointments.bind(this);
@@ -44,6 +47,7 @@ class Patient extends Component {
 
   componentDidMount() {
     this.getAppointments();
+    // this.getPatients();
   }
 
   async getAppointments() {
@@ -120,7 +124,6 @@ class Patient extends Component {
           {/* <Calendar2 /> */}
           <NewAppt getAppointments={this.getAppointments} baseURL={baseURL} />
           <h2>Current Appointments</h2>
-
           <div className="card-content">
             <table className="table">
               <thead>Current Appointments</thead>
@@ -145,7 +148,6 @@ class Patient extends Component {
                           {formatDate}
                         </a>
                       </td>
-
                       <td>{appointment.time}</td>
                       {/* note: toggle may not be needed as written - TBD */}
                       <td
@@ -157,6 +159,7 @@ class Patient extends Component {
                         {" "}
                         {appointment.url}
                       </td>
+                      */
                       <td>
                         <button
                           onClick={() => this.editAppointments(appointment)}
@@ -188,6 +191,12 @@ class Patient extends Component {
             <ShowAppt appointment={this.state.appointment} />
           )}
         </div>
+        {/* <div className="container-office-info"> */}
+        <div className="container-officeHours">
+          <OfficeInfo />
+          <Map />
+        </div>
+        {/* </div> */}
       </div>
     );
   }

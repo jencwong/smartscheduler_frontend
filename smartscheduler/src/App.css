@@ -40,16 +40,36 @@ label {
 
 .container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  border-color: blue;
-  margin: 20px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.container-mainContent {
-  display: flex;
-  flex-direction: column;
-  border-color: blue;
-  margin: 20px;
+
+.App__Aside {
+  background-image: url("https://image.flaticon.com/icons/svg/433/433924.svg");
+  background-size: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background: rgb(0, 212, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 212, 255, 1) 5%,
+    rgba(7, 7, 14, 1) 56%,
+    rgba(2, 0, 36, 1) 97%
+  );
+}
+.particles {
+  height: 100%;
+  width: 100%;
+}
+.reach {
+  margin-top: 15px;
+  font-size: 40px;
+  position: relative;
+  left: 60px;
+  background-image: url("https://image.flaticon.com/icons/svg/124/124567.svg");
+  background-repeat: no-repeat;
+  background-position: 120px;
 }
 
 .card-content {
@@ -59,7 +79,8 @@ label {
   box-shadow: 3px 3px 4px -3px #62617c;
   padding: 20px;
 }
-.menu {
+
+.PageSwitcher {
   display: flex;
   flex-direction: column;
   border: 1px solid lightgray;
