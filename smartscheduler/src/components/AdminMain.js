@@ -37,7 +37,11 @@ class AdminMain extends Component {
     this.getPatients();
   }
   async getAppointments() {
+<<<<<<< HEAD
     const response = await axios(`${baseURL}/appointment`);
+=======
+    const response = await axios(`${baseURL}/appointment/admin`);
+>>>>>>> testing
     const appointments = response.data;
     this.setState({
       appointments: appointments
