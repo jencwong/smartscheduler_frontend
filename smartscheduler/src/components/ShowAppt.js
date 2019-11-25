@@ -24,7 +24,7 @@ class ShowAppt extends React.Component {
       appointment: {}
     };
     this.handleAddAppointment = this.handleAddAppointment.bind(this);
-    this.deleteAppointment = this.deleteAppointment.bind(this);
+    // this.deleteAppointment = this.deleteAppointment.bind(this);
     this.getAppointment = this.getAppointment.bind(this);
   }
   componentDidMount() {
@@ -52,20 +52,24 @@ class ShowAppt extends React.Component {
   //     appointments: filteredAppointments
   //   });
 
-  async deleteAppointment(id) {
-    await axios.delete(`${baseURL}/appointment/${id}`);
-    const filteredAppointments = this.state.appointments.filter(appointment => {
-      return appointment._id !== id;
-    });
+  // async deleteAppointment(id) {
+  //   await axios.delete(`${baseURL}/appointment/${id}`);
+  //   const filteredAppointments = this.state.appointments.filter(appointment => {
+  //     return appointment._id !== id;
+  //   });
 
-    this.setState({
-      appointments: filteredAppointments
-    });
-  }
-  getAppointment(appointment) {
-    this.setState({ appointment: appointment });
-  }
+  //   this.setState({
+  //     appointments: filteredAppointments
+  //   });
+  // }
+  // getAppointment(appointment) {
+  //   this.setState({ appointment: appointment });
+  // }
+
   render() {
+    const date = new Date(this.props.appointment.date);
+    const formatDate = date.toDateString();
+
     return (
       <div className="card">
         <hr></hr>
@@ -76,28 +80,27 @@ class ShowAppt extends React.Component {
         Schedule New Appointment
         <div className="card-content">
           <div>
-            <br />
             {/* <h4>
-              {" "}
-              Hi {this.props.users.firstName}, below are details for your next
-              appointment.{" "}
-            </h4>{" "}
-            */}
-            <h5>
-              {" "}
-              <span>Date:</span> {this.props.appointment.date}
-              <br />
-              <span>Time:{this.props.appointment.time}</span>
-            </h5>
-            <h5>
-              <span>Visit Type:</span> {this.props.appointment.visitType}
-            </h5>
-            <h5>
-              <span>Comments:</span> {this.props.appointment.comments}
-            </h5>
-            {/* <button onClick={() => this.deleteAppointment(appointment._id)}>
-              DELETE{" "}
-            </button> */}
+                   Hi {this.props.users.firstName}, below are details for your next
+                 appointment.
+                </h4> */}
+            <div>
+              <div>
+                <h5>
+                  <span>Date:&nbsp;{formatDate}</span>
+                </h5>
+
+                <h5>
+                  <span>Time:&nbsp;{this.props.appointment.time}</span>
+                </h5>
+                <h5>
+                  <span>Visit Type:</span> {this.props.appointment.visitType}
+                </h5>
+              </div>
+              <h5>
+                <span>Comments:</span> {this.props.appointment.comments}
+              </h5>
+            </div>
           </div>
         </div>
       </div>

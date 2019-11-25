@@ -9,7 +9,7 @@ import NewAppt from "./NewAppt.js";
 import ShowAppt from "./ShowAppt.js";
 import UpdateAppt from "./UpdateAppt.js";
 import Sidebar from "./Sidebar.js";
-// import Calendar from "./Calendar";
+import Calendar2 from "./Calendar2";
 
 let baseURL = process.env.REACT_APP_BASEURL;
 
@@ -109,16 +109,18 @@ class Patient extends Component {
           <Sidebar />
         </div>
         <div className="container-mainContent">
-          <div className="Card">
+          {/* <div className="Card">
             <div className="card-content">
               <div className="content">
                 You have no appointments currently scheduled.
               </div>
             </div>
-          </div>
+          </div> */}
           <h2>Schedule An Appointment</h2>
+          {/* <Calendar2 /> */}
           <NewAppt getAppointments={this.getAppointments} baseURL={baseURL} />
           <h2>Current Appointments</h2>
+
           <div className="card-content">
             <table className="table">
               {/* <thead>Current Appointments</thead> */}
@@ -178,7 +180,6 @@ class Patient extends Component {
               </tbody>
             </table>
           </div>
-          {/* <Calendar /> */}
           <div> {showUpdateAppt} </div>
           <br />
           <br />

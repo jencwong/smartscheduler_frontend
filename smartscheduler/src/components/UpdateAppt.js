@@ -9,7 +9,7 @@ class UpdateAppt extends Component {
       date: "",
       time: "",
       vistType: "",
-      comments: "",
+      comments: ""
     };
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleEditSubmit = this.handleEditSubmit.bind(this);
@@ -21,6 +21,7 @@ class UpdateAppt extends Component {
       date: this.props.appointment.date,
       time: this.props.appointment.time,
       visitType: this.props.appointment.visitType,
+      comments: this.props.appointment.comments
     });
   }
 
@@ -40,13 +41,15 @@ class UpdateAppt extends Component {
         date: this.state.appointment.date,
         time: this.state.appointment.time,
         visitType: this.state.appointment.visitType,
-        };
+        comments: this.state.appointment.comments
+      };
       const updatedAppointment = await axios.put(url, payload);
       this.props.getAppointments();
       this.setState({
         date: "",
         time: "",
-        vistType: "",
+        visitType: "",
+        comments: ""
       });
     } catch (err) {
       console.log(err);
@@ -55,15 +58,47 @@ class UpdateAppt extends Component {
   render() {
     return (
       <div className="card-content">
-          <form onSubmit={this.handleEditSubmit}>
+        <form onSubmit={this.handleEditSubmit}>
           <div className="row">
-          <label htmlFor="date">Date</label>
-            <input className="inputData" type="text" id="date" name="date" value={ this.state.date } onChange={ this.handleOnChange } />
-            <input className="inputData" type="text" id="time" name="time" value={ this.state.time } onChange={ this.handleOnChange } />
-            <input className="inputData" type="text" id="visitType" name="visitType" value={ this.state.visitType } onChange={ this.handleOnChange } />
+            <label htmlFor="date">Date</label>
+            <input
+              className="inputData"
+              type="text"
+              id="date"
+              name="date"
+              value={this.state.date}
+              onChange={this.handleOnChange}
+            />
+            <input
+              className="inputData"
+              type="text"
+              id="time"
+              name="time"
+              value={this.state.time}
+              onChange={this.handleOnChange}
+            />
+            <input
+              className="inputData"
+              type="text"
+              id="visitType"
+              name="visitType"
+              value={this.state.visitType}
+              onChange={this.handleOnChange}
+            />
             <label htmlFor="comments">Comments / Reason for Visit</label>
-            <textarea className="inputData" className="u-full-width" id="comments" name="comments" value={ this.state.comments } />
-            <input className="inputData" type="submit" value="Update Appointment" />
+            <textarea
+              className="inputData"
+              className="u-full-width"
+              id="comments"
+              name="comments"
+              value={this.state.comments}
+              onChange={this.handleOnChange}
+            />
+            <input
+              className="inputData"
+              type="submit"
+              value="Update Appointment"
+            />
           </div>
         </form>
       </div>

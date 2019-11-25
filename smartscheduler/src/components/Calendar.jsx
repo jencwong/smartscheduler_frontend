@@ -1,10 +1,16 @@
 import React from "react";
 import dateFns from "date-fns";
-import { format } from "date-fns";
+import {
+  renderHeader,
+  renderDays,
+  renderCells,
+  days,
+  currentMonth
+} from "date-fns";
 
 // import moment from "moment";
 
-class Calendar extends React.Component {
+class Calendar extends Component {
   state = {
     currentMonth: new Date(),
     selectedDate: new Date()
