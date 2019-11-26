@@ -7,10 +7,7 @@ import ProfileModal from "./ProfileModal";
 function Sidebar() {
   return (
     <div className="sidebar">
-      <img
-        className="userImg"
-        src="https://vignette.wikia.nocookie.net/harrypotter/images/1/15/MOLLY1.jpg/revision/latest/scale-to-width-down/350?cb=20150828155116"
-      ></img>
+      <img src={process.env.PUBLIC_URL + "/mediCal.png"} className="userImg" />
       <h5 className="menu-label">
         Welcome
         {/* {this.props.users.firstName} */}
