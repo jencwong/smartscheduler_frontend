@@ -36,7 +36,12 @@ class Patient extends Component {
       time: "",
       appointments: [],
       appointment: {},
+<<<<<<< HEAD
       selectedAppointment: {},
+=======
+      selectedAppointment: {}, 
+      loggedInUser: {},
+>>>>>>> cf690827d47c71906ba1cf829b42c2cde2218bbd
       editButton: false
     };
     this.getAppointments = this.getAppointments.bind(this);
@@ -48,6 +53,20 @@ class Patient extends Component {
   componentDidMount() {
     this.getAppointments();
     // this.getPatients();
+<<<<<<< HEAD
+=======
+  }
+
+  async testLogin() {
+    const response = await axios.post(`${baseURL}/session`, {
+      username: "",
+      password: "",
+      category: ""
+    });
+    const user = response.data;
+
+    this.setState({ loggedInUser: user });
+>>>>>>> cf690827d47c71906ba1cf829b42c2cde2218bbd
   }
 
   async getAppointments() {
