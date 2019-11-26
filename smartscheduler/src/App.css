@@ -1,4 +1,4 @@
-.App {
+.Frontapp {
   height: 100vh;
   display: flex;
   color: white;
@@ -7,32 +7,8 @@
 }
 
 .App__Aside {
-  background-image: url("https://image.flaticon.com/icons/svg/433/433924.svg");
-  background-size: 300px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background: rgb(0, 212, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 212, 255, 1) 5%,
-    rgba(7, 7, 14, 1) 56%,
-    rgba(2, 0, 36, 1) 97%
-  );
+  background-color: white;
 }
-.particles {
-  height: 100%;
-  width: 100%;
-}
-.reach {
-  margin-top: 15px;
-  font-size: 40px;
-  position: relative;
-  left: 60px;
-  background-image: url("https://image.flaticon.com/icons/svg/124/124567.svg");
-  background-repeat: no-repeat;
-  background-position: 120px;
-}
-
 .App__Form {
   background-color: #2e4158;
   padding: 25px 40px;
@@ -66,9 +42,27 @@
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
+.PageSwitcher__Item:first-child:hover {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  background-color: #5ed0c0;
+  color: white;
+}
 .PageSwitcher__Item:last-child {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
+}
+.PageSwitcher__Item:last-child:hover {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #5ed0c0;
+  color: white;
+}
+
+.dna-image {
+  height: 200px;
+  position: relative;
+  right: -200px;
 }
 
 .FormCenter {
@@ -137,7 +131,9 @@
   font-weight: 500;
   margin-top: 10px;
 }
-
+.FormFieldCheck {
+  width: 200px;
+}
 .FormField__Link {
   color: #ffffff;
   text-decoration: none;
@@ -148,12 +144,16 @@
 
 .FormField__CheckboxLabel {
   color: #646f7d;
-  font-size: 0.9em;
+  font-size: 9px;
+  display: grid;
+  grid-template-columns: 30px 95px 80px;
+  align-items: baseline;
 }
 
 .FormField__Checkbox {
-  position: relative;
+  display: flex;
   top: 1.5px;
+  color: #646f7d;
 }
 
 .FormField__TermsLink {
