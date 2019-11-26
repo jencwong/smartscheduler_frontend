@@ -14,18 +14,8 @@ function Sidebar() {
       </h5>
       <br></br>
       <List disablePadding dense>
-        <ListItem>
-          <ProfileModal />
-        </ListItem>
-        <ListItem>
-          <Button
-            variant="contained"
-            // color="primary"
-            style={{ background: "#C6D166" }}
-          >
-            Visit History
-          </Button>
-        </ListItem>
+        <ListItem>{/* <ProfileModal /> */}</ListItem>
+        <ListItem></ListItem>
         <ListItem>
           <Button
             variant="contained"

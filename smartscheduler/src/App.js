@@ -3,14 +3,12 @@ import React from "react";
 // import Header from './components/Header';
 import Patient from "./components/Patient";
 // import Footer from './components/Footer';
-import AdminMain from "./components/AdminMain.js";
 
 function App() {
   return (
     <div>
       {/* <Header /> */}
       <Patient />
-      <AdminMain />
       {/* <Footer /> */}
     </div>
   );

@@ -54,9 +54,6 @@ class ShowAppt extends React.Component {
     const formatDate = date.toDateString();
     return (
       <div className="card">
-        <hr></hr>
-        <hr></hr>
-        <br></br>
         <h2>Appointment Details</h2>
         <div className="card-content">
           <br />

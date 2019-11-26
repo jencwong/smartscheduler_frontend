@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Modal from "@material-ui/core/Modal";
 import UserProfile from "./UserProfile";
-import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -52,7 +52,7 @@ export default function SimpleModal() {
       <Button
         variant="contained"
         // color="primary"
-        style={{ background: "#C6D166" }}
+        style={{ background: "#C6D166", fontSize: "11px" }}
         onClick={handleOpen}
       >
         User Profile
