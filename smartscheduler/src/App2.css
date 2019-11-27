@@ -7,7 +7,7 @@ h1 {
 h2 {
   display: flex;
   justify-content: center;
-  color: #c6d166;
+  color: blue;
   /* color: rgb(45, 103, 230); */
   margin-left: 35px;
   margin-bottom: -10px;
@@ -19,7 +19,7 @@ h3 {
 button {
   margin: 15px;
   width: 100px;
-  background-color: rgb(55, 109, 45);
+  background-color: blue;
   color: white;
   font-weight: 700;
   border-radius: 6px;
@@ -70,7 +70,7 @@ form {
 .submitBtn {
   margin: 15px;
   width: 100px;
-  background-color: rgb(55, 109, 45);
+  background-color: blue;
   color: white;
   font-weight: 700;
   border-radius: 6px;
@@ -80,19 +80,19 @@ a {
 }
 button {
   width: 100px;
-  background-color: rgb(55, 109, 45);
+  background-color: blue;
   color: white;
   font-weight: 700;
   border-radius: 6px;
 }
 button:hover {
   background-color: white;
-  color: #c6d166;
+  color: blue;
   transform: scale(1.2);
 }
 .submitBtn:hover {
   background-color: white;
-  color: #c6d166;
+  color: lightskyblue;
   transform: scale(1.2);
 }
 label {

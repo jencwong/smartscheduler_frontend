@@ -1,9 +1,5 @@
-//This code is incomplete. We need to decide what we want the user to see. Recommendations: The show page is the complete record / details of what is shown on mouseover. It should contain all of the details of the appointment.
-//Additional features could include: options to print, show map of location with option of entering starting point, add to personal calendar (cal api link on how to do this was Slacked). Questions for consideration: should edit and delete be options too? View for patient and doctor should be different - for example, the doctor does not need a map.
-
 import React from "react";
 import axios from "axios";
-// import NewAppt from "./NewAppt";
 let baseURL = process.env.REACT_APP_BASEURL;
 if (process.env.NODE_ENV === "development") {
   baseURL = "http://localhost:3003";
@@ -57,7 +53,7 @@ class ShowAppt extends React.Component {
         <h2>Appointment Details</h2>
         <div className="card-content">
           <br />
-          <h5>
+          {/* <h5>
             <span>Date:</span> {formatDate}
             <br />
             <span>Time:{this.props.appointment.time}</span>
@@ -67,10 +63,19 @@ class ShowAppt extends React.Component {
           </h5>
           <h5>
             <span>Comments:</span> {this.props.appointment.comments}
-          </h5>
-          {/* <button onClick={() => this.deleteAppointments(appointment._id)}>
-                          DELETE{" "}
-                        </button> */}
+          </h5> */}
+          <tbody>
+            <tr>
+              <td>Date: {formatDate}</td>
+            </tr>
+            <tr>
+              <td>Time: {this.props.appointment.time}</td>
+            </tr>
+            <td>Visit Type: {this.props.appointment.visitType} </td>
+            <tr>
+              <td>Comments:{this.props.appointment.comments} </td>
+            </tr>
+          </tbody>
         </div>
       </div>
     );
