@@ -12,6 +12,8 @@ import UpdateAppt from "./UpdateAppt.js";
 import Sidebar from "./Sidebar.js";
 import OfficeInfo from "./OfficeInfo.js";
 import Map from "./Map.js";
+import ProfileModal from "./ProfileModal";
+import Button from "@material-ui/core/Button";
 
 // import CurrentAppointments from ".CurrentAppointments.js";
 
@@ -140,87 +142,104 @@ class Patient extends Component {
     return (
       <div>
         <div className="dashboard-header">
-          <span className="banner">mediCal</span>
-          <button className="logout" onClick={this.logOut}>
-            Logout
-          </button>
-        </div>
-        <div className="container">
-          <div className="container-sidebar">
-            <Sidebar />
+          <div className="banner">mediCal</div>
+          <div className="NavBtns">
+            <ProfileModal />
           </div>
-          <div className="container-mainContent">
-            <h2>Schedule An Appointment {this.state.firstName} </h2>
-            <NewAppt getAppointments={this.getAppointments} baseURL={baseURL} />
-            <h2>Current Appointments</h2>
+        </div>
 
-            <div className="card-content">
-              <table className="table">
-                <tbody>
-                  {this.state.appointments.map(appointment => {
-                    const date = new Date(appointment.date);
-                    const formatDate = date.toDateString();
-                    return (
-                      <tr
-                        className="bordered"
-                        onMouseOver={() => this.getAppointment(appointment)}
-                        key={appointment._id}
-                      >
-                        <td>
-                          <a href={appointment} target="_blank">
-                            {formatDate}
-                          </a>
-                        </td>
-                        <td>{appointment.time}</td>
-                        {/* note: toggle may not be needed as written - TBD */}
-                        {
-                          /* <td
+        <button className="logout" onClick={this.logOut}>
+          Logout
+        </button>
+        <div className="container">
+          <div className="container-mainContent">
+            <div className="newAppt">
+              <h2>Schedule An Appointment</h2>
+              <NewAppt
+                getAppointments={this.getAppointments}
+                baseURL={baseURL}
+              />
+            </div>
+            <div className="group">
+              <div className="showDetails"></div>
+
+              <h2>Current Appointments</h2>
+              {/* <CurrentAppointments /> */}
+              <div className="card-content">
+                <table className="table">
+                  {/* <thead>Current Appointments</thead> */}
+                  <tbody>
+                    {this.state.appointments.map(appointment => {
+                      const date = new Date(appointment.date);
+                      const formatDate = date.toDateString();
+                      // return this.state.users.map(user => {
+                      //   if (user._id === appointment.patientId) {
+                      return (
+                        // <thead>
+                        //   <tr>
+                        //     <th>Date</th>
+                        //     <th>Time</th>
+                        //   </tr>
+                        // </thead>
+                        <tr
+                          className="bordered"
+                          onMouseOver={() => this.getAppointment(appointment)}
+                          key={appointment._id}
+                        >
+                          <td>
+                            <a href={appointment} target="_blank">
+                              {formatDate}
+                            </a>
+                          </td>
+                          <td>{appointment.time}</td>
+                          {/* note: toggle may not be needed as written - TBD */}
+                          {
+                            /* <td
                         className={ appointment.visited ? "visited" : null}
                         onDoubleClick={() =>
                           this.toggleVisited(appointment, appointment._id) }>
                         {" "}
                         {appointment.url}
                       </td>*/
+                            <td>
+                              <button
+                                onClick={() =>
+                                  this.editAppointments(appointment)
+                                }
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          }
                           <td>
+                            {" "}
                             <button
-                              className="patient-button"
-                              onClick={() => this.editAppointments(appointment)}
+                              onClick={() =>
+                                this.deleteAppointments(appointment._id)
+                              }
                             >
-                              Edit
+                              Delete{" "}
                             </button>
                           </td>
-                        }
-                        <td>
-                          {" "}
-                          <button
-                            className="patient-button"
-                            onClick={() =>
-                              this.deleteAppointments(appointment._id)
-                            }
-                          >
-                            Delete{" "}
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              {this.state.appointment && (
+                <ShowAppt appointment={this.state.appointment} />
+              )}
+              <div> {showUpdateAppt} </div>
             </div>
-            <div> {showUpdateAppt} </div>
-            <br />
-            <br />
-            <br />
-            {this.state.appointment && (
-              <ShowAppt appointment={this.state.appointment} />
-            )}
           </div>
-          {/* <div className="container-office-info"> */}
-          <div className="container-officeHours">
-            <OfficeInfo />
-            <Map />
-          </div>
-          {/* </div> */}
+          <br />
+          <br />
+          <br />
+        </div>
+        <div className="container-officeHours">
+          <OfficeInfo />
+          <Map />
         </div>
       </div>
     );
