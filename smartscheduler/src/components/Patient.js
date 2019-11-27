@@ -52,8 +52,6 @@ class Patient extends Component {
   componentDidMount() {
     this.getAppointments();
     const token = localStorage.usertoken;
-
-    console.log(token);
     const decoded = jwt_decode(token);
     this.setState({
       firstName: decoded.firstName,

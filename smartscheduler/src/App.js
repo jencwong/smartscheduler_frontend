@@ -8,16 +8,14 @@ import axios from "axios";
 // import Footer from "./components/Footer";
 // import Footer from './components/Footer';
 import AdminMain from "./components/AdminMain.js";
-import FrontLogin from "./components/FrontLogin";
 
 function App() {
   return (
     <div>
       <MainContent />
-      <Header />
-      {/* <FrontLogin /> */}
-      {/* <Patient /> */}
-      {/* <AdminMain /> */}
+      {/* <Header /> */}
+      {/* <Patient />
+      <AdminMain /> */}
       {/* <Footer /> */}
     </div>
   );

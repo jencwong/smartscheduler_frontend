@@ -69,7 +69,7 @@
 //   }
 // }
 
-// export default MainContent;
+// export default MainContent
 
 import FrontLogin from "./FrontLogin";
 import React, { Component } from "react";
@@ -88,11 +88,9 @@ class Main extends Component {
     return (
       <>
         <Router>
-          <Switch>
-            <Route exact path="/admin/profile" component={AdminMain} />
-            <Route exact path="/user/profile" component={Profile} />
-            <Route exact path="/auth" component={FrontLogin} />
-          </Switch>
+          <Route exact path="/admin/profile" component={AdminMain} />
+          <Route exact path="/user/profile" component={Profile} />
+          <Route exact path="/auth" component={FrontLogin} />
         </Router>
       </>
     );
