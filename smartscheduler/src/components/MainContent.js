@@ -69,7 +69,7 @@
 //   }
 // }
 
-// export default MainContent;
+// export default MainContent
 
 import FrontLogin from "./FrontLogin";
 import React, { Component } from "react";

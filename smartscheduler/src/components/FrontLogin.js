@@ -48,10 +48,7 @@ class FrontLogin extends Component {
               </div>
             </div>
             <div className="FormTitle">
-              <img
-                src="https://www.flaticon.com/premium-icon/icons/svg/626/626892.svg"
-                className="dna-image"
-              />
+              <img src="/green_calendar_mediCal.png" />
             </div>
             {this.state.renderSignIn ? <SignInForm /> : <SignUpForm />}
           </div>

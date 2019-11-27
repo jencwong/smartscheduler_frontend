@@ -1,21 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-//Note: name, dob, email, phone, doctor, and visited are not needed right now and are therefore commented. 
 class NewAppt extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // name: "",
-      // dob: "",
-      // email: "",
-      // phone: "",
       date: "",
       time: "",
       visitType: "",
-      comments: "",
-      // doctor: "",
-      // visited: ""
+      comments: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +17,6 @@ class NewAppt extends Component {
       [event.currentTarget.name]: event.currentTarget.value
     });
   }
-
   async handleSubmit(event) {
     event.preventDefault();
     console.log("test");
@@ -34,23 +25,23 @@ class NewAppt extends Component {
       date: this.state.date,
       time: this.state.time,
       visitType: this.state.visitType,
-      comments: this.state.comments,
+      comments: this.state.comments
     });
     this.setState({
       date: "",
       time: "",
       visitType: "",
-      comments: "",
+      comments: ""
     });
     this.props.getAppointments();
   }
-
   render() {
     return (
       <div className="card-content">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="date">Date</label>
-          <input className="inputData"
+          <input
+            className="inputData"
             type="date"
             id="date"
             name="date"
@@ -59,7 +50,8 @@ class NewAppt extends Component {
             placeholder="Enter Date"
           />
           <label htmlFor="time">Time</label>
-          <input className="inputData"
+          <input
+            className="inputData"
             type="time"
             id="time"
             name="time"
@@ -68,7 +60,8 @@ class NewAppt extends Component {
             placeholder="Enter Appointment Time"
           />
           <label htmlFor="visitType">Appointment Type</label>
-          <input className="inputData"
+          <input
+            className="inputData"
             type="text"
             id="visitType"
             name="visitType"
@@ -77,22 +70,18 @@ class NewAppt extends Component {
             placeholder="Enter Reason for Visit"
           />
           <label htmlFor="coments">Comments / Additional Information</label>
-          <textarea className="inputData"
+          <textarea
+            className="inputData"
             id="comments"
             name="comments"
             onChange={this.handleChange}
             value={this.state.comments}
             placeholder="Enter Comments / Additional Information"
           />
-          <input 
-          className="submitBtn" 
-          type="submit" 
-          value="SUBMIT" 
-          />
+          <input className="submitBtn" type="submit" value="SUBMIT" />
         </form>
       </div>
     );
   }
 }
-
 export default NewAppt;

@@ -14,8 +14,12 @@ h3 {
   color: rgb(45, 103, 230);
 }
 button {
-  color: blue;
-  font-size: 10pt;
+  margin: 15px;
+  width: 100px;
+  background-color: rgb(55, 109, 45);
+  color: white;
+  font-weight: 700;
+  border-radius: 6px;
 }
 table {
   border-collapse: collapse;
@@ -82,6 +86,11 @@ a {
   font-weight: 700;
   border-radius: 6px;
 }
+button:hover {
+  background-color: white;
+  color: #c6d166;
+  transform: scale(1.2);
+}
 .submitBtn:hover {
   background-color: white;
   color: #c6d166;
@@ -105,9 +114,17 @@ a {
   justify-content: center;
   margin: 20px;
 }
-.container-mainContent {
+.show {
+  width: 300px;
+}
+.group {
   display: flex;
   flex-direction: column;
+}
+.container-mainContent {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
   border: 1px solid lightgray;
   margin: 0 15px;
 }
@@ -148,10 +165,14 @@ a {
 }
 .container-officeHours {
   border: 1px solid lightgray;
-  padding: 0 10px;
+  padding: 0 5px;
+  margin-left: 12px;
   font-size: 10pt;
   height: 400px;
-  width: 265px;
+  width: 240px;
+  z-index: 1;
+  position: absolute;
+  top: 90px;
 }
 .office-map {
   margin-top: 40px;
@@ -159,8 +180,21 @@ a {
   padding: 10px;
   width: 90%;
 }
-
+.NavBtns {
+  z-index: 1;
+  text-align: right;
+  margin-top: -61px;
+  margin-right: 5px;
+}
 #AdminDash {
   padding-top: 2%;
   padding-bottom: 2%;
+}
+
+.level {
+  background-color: #c6d166;
+}
+
+.title.is-1 {
+  color: white;
 }
