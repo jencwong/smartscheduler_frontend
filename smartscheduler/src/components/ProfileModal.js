@@ -3,12 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Modal from "@material-ui/core/Modal";
 import UserProfile from "./UserProfile";
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
-
 function getModalStyle() {
   const top = 50 + rand();
   const left = 50 + rand();
@@ -18,7 +15,6 @@ function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`
   };
 }
-
 const useStyles = makeStyles(theme => ({
   modal: {
     display: "flex",
@@ -33,31 +29,26 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2, 4, 3)
   }
 }));
-
 export default function SimpleModal() {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
-
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <div>
       <Button
         variant="contained"
         // color="primary"
-        style={{ background: "#C6D166" }}
+        style={{ background: "lightskyblue", fontSize: "11px" }}
         onClick={handleOpen}
       >
         User Profile
       </Button>
-
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 class UpdateAppt extends Component {
   constructor() {
     super();
@@ -13,7 +12,6 @@ class UpdateAppt extends Component {
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleEditSubmit = this.handleEditSubmit.bind(this);
   }
-
   componentDidMount() {
     console.log("edited");
     this.setState({
@@ -23,7 +21,6 @@ class UpdateAppt extends Component {
       comments: this.props.appointment.comments
     });
   }
-
   handleOnChange(event) {
     const { name, value } = event.target;
     console.log({ name, value });
@@ -31,7 +28,6 @@ class UpdateAppt extends Component {
       [name]: value
     });
   }
-
   async handleEditSubmit(event) {
     try {
       event.preventDefault();
@@ -61,10 +57,8 @@ class UpdateAppt extends Component {
     return (
       <div className="card-content">
         <h3>Edit Appointment</h3>
-        <form className="edit-appointment" onSubmit={this.handleEditSubmit}>
-          <label className="label-update" htmlFor="date">
-            Date
-          </label>
+        <form onSubmit={this.handleEditSubmit}>
+          <label htmlFor="date">Date</label>
           <input
             className="inputData"
             type="text"
@@ -73,9 +67,7 @@ class UpdateAppt extends Component {
             value={formatDate}
             onChange={this.handleOnChange}
           />
-          <label className="label-update" htmlFor="time">
-            Time
-          </label>
+          <label htmlFor="time">Time</label>
           <input
             className="inputData"
             type="text"
@@ -84,9 +76,7 @@ class UpdateAppt extends Component {
             value={this.state.time}
             onChange={this.handleOnChange}
           />
-          <label className="label-update" htmlFor="visitType">
-            Appointment Type
-          </label>
+          <label htmlFor="visitType">Appointment Type</label>
           <input
             className="inputData"
             type="text"
@@ -95,9 +85,7 @@ class UpdateAppt extends Component {
             value={this.state.visitType}
             onChange={this.handleOnChange}
           />
-          <label className="label-update" htmlFor="comments">
-            Comments / Additional Information
-          </label>
+          <label htmlFor="comments">Comments / Additional Information</label>
           <textarea
             id="comments"
             name="comments"
@@ -114,5 +102,4 @@ class UpdateAppt extends Component {
     );
   }
 }
-
 export default UpdateAppt;

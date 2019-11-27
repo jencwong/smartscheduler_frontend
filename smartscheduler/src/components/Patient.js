@@ -9,7 +9,6 @@ import axios from "axios";
 import NewAppt from "./NewAppt.js";
 import ShowAppt from "./ShowAppt.js";
 import UpdateAppt from "./UpdateAppt.js";
-import Sidebar from "./Sidebar.js";
 import OfficeInfo from "./OfficeInfo.js";
 import Map from "./Map.js";
 import ProfileModal from "./ProfileModal";
