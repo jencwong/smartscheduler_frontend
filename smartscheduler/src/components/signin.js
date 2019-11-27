@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { Link, withRouter, Redirect, Switch } from "react-router-dom";
 import axios from "axios";
 
 const baseURL = "http://localhost:3003";
@@ -39,10 +39,6 @@ class SignInForm extends Component {
     //   ? this.props.history.push("/admin/profile")
     //   : this.props.history.push("/user/profile");
 
-    response.data.category
-      ? this.props.history.push("/admin/profile")
-      : this.props.history.push("/user/profile");
-
     console.log(response.data.category);
 
     // if (response.data.category) {
@@ -63,6 +59,10 @@ class SignInForm extends Component {
       password: "",
       category: ""
     });
+
+    response.data.category
+      ? this.props.history.push("/admin/profile")
+      : this.props.history.push("/user/profile");
   }
 
   componentWillUnmount() {

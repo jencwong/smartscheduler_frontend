@@ -164,3 +164,11 @@ a {
   padding-top: 2%;
   padding-bottom: 2%;
 }
+
+.level {
+  background-color: #c6d166;
+}
+
+.title.is-1 {
+  color: white;
+}

@@ -9,6 +9,7 @@ import "react-bulma-components/dist/react-bulma-components.min.css";
 import axios from "axios";
 import ShowAppt from "./ShowAppt.js";
 import "../App2.css";
+import Button from "@material-ui/core/Button";
 
 let baseURL = process.env.REACT_APP_BASEURL;
 if (process.env.NODE_ENV === "development") {
@@ -29,6 +30,7 @@ class AdminMain extends Component {
       appointment: {},
       selectedAppointment: {}
     };
+    this.logOut = this.logOut.bind(this);
     this.getAppointments = this.getAppointments.bind(this);
     this.getAppointment = this.getAppointment.bind(this);
     // this.getBookmark = this.getBookmark.bind(this);
@@ -39,6 +41,11 @@ class AdminMain extends Component {
   componentDidMount() {
     this.getAppointments();
     this.getPatients();
+  }
+  logOut(e) {
+    e.preventDefault();
+    localStorage.removeItem("usertoken");
+    this.props.history.push(`/auth`);
   }
   async getAppointments() {
     const response = await axios(`${baseURL}/appointment`);
@@ -95,12 +102,18 @@ class AdminMain extends Component {
     return (
       <div>
         <section className="level">
-          <img src="../images/green_calendar_medical.png"></img>
+          <img src="/green_calendar_medical.png"></img>
           <div className="hero-body">
             <h1 className="title is-1">Doctor's Dashboard</h1>
           </div>
         </section>
-        <div>
+        <div className="buttons are-medium is-centered">
+          <button
+            className="button is-success is-outlined"
+            onClick={this.logOut}
+          >
+            Logout
+          </button>
           <h3>{/* <Weather /> */}</h3>
         </div>
 
@@ -129,6 +142,7 @@ class AdminMain extends Component {
                   console.log(user.firstName);
                   return (
                     <tr
+                      className="bordered"
                       onMouseOver={() => this.getAppointment(appointment)}
                       key={appointment._id}
                     >
@@ -188,6 +202,7 @@ class AdminMain extends Component {
             })}
           </tbody>
         </table>
+
         {this.state.appointment && (
           <ShowAppt appointment={this.state.appointment} />
         )}
